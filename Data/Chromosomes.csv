@@ -1,0 +1,101 @@
+﻿Binomial,Chromosome_num,species_group,chromosome_group,not_in_Leache_et_al_2016,why_not,insular_endemic,Max_SVL,Size_guild,chromosomally_diverse_clade,in_Rivera_et_al,in_GARD
+Sceloporus acanthinus,22,formosus,form-spin-und,,,F,99,medium,TRUE,FALSE,TRUE
+Sceloporus adleri,22,formosus,form-spin-und,,,F,78.8,medium,TRUE,TRUE,TRUE
+Sceloporus aeneus,24,scalaris,scalaris,,,F,62.8,small,TRUE,TRUE,TRUE
+Sceloporus albiventris,,spinosus,form-spin-und,x,?ssp of horridus,F,102,large,TRUE,FALSE,TRUE
+Sceloporus anahuacus,,grammicus,torquatus,,,F,54,small,TRUE,FALSE,TRUE
+Sceloporus angustus,34,angustus,basal,,,T,101,large,FALSE,FALSE,TRUE
+Sceloporus arenicolus,30,graciosus,graciosus,,,F,70,small,TRUE,TRUE,TRUE
+Sceloporus asper,32/31,grammicus,asper,,,F,81,medium,TRUE,FALSE,TRUE
+Sceloporus aurantius,24,scalaris,scalaris,,,F,55,small,TRUE,FALSE,TRUE
+Sceloporus aureolus,32,poinsettii,torquatus,,,F,101.2,large,TRUE,FALSE,TRUE
+Sceloporus becki,,undulatus,form-spin-und,x,?ssp of occidentalis,T,70,small,TRUE,FALSE,TRUE
+Sceloporus bicanthalis,24,scalaris,scalaris,,,F,62,small,TRUE,TRUE,TRUE
+Sceloporus bimaculosus,?,magister,mag-26,,,F,140,large,TRUE,FALSE,TRUE
+Sceloporus brownorum,,,,,,,,,FALSE,FALSE,FALSE
+Sceloporus bulleri,32,torquatus,torquatus,,,F,116,large,TRUE,TRUE,TRUE
+Sceloporus caeruleus,,poinsettii,torquatus,x,?ssp of ornatus,F,75,medium,TRUE,FALSE,TRUE
+Sceloporus carinatus,34,angustus,basal,,,F,80,medium,FALSE,TRUE,TRUE
+Sceloporus cautus,22,undulatus,form-spin-und,,,F,89,medium,TRUE,TRUE,TRUE
+Sceloporus chaneyi,24,scalaris,scalaris,,,F,57,small,TRUE,FALSE,TRUE
+Sceloporus chrysostictus,34,variabilis,basal,,,F,62,small,FALSE,TRUE,TRUE
+Sceloporus clarkii,40,clarkii,clarkii,,,F,144,large,TRUE,TRUE,TRUE
+Sceloporus consobrinus,22,undulatus,form-spin-und,,,F,78.8,medium,TRUE,TRUE,TRUE
+Sceloporus couchii,34,variabilis,basal,,,F,64,small,FALSE,TRUE,TRUE
+Sceloporus cowlesi,22,undulatus,form-spin-und,,,F,80,medium,TRUE,TRUE,TRUE
+Sceloporus cozumelae,34,variabilis,basal,not sampled,,F,60,small,FALSE,FALSE,TRUE
+Sceloporus cryptus,22,formosus,form-spin-und,,,F,76.6,medium,TRUE,TRUE,TRUE
+Sceloporus cupreus,,siniferus,basal,not sampled,,F,52,small,FALSE,FALSE,TRUE
+Sceloporus cyanogenys,32,poinsettii,torquatus,,,F,148,large,TRUE,TRUE,TRUE
+Sceloporus cyanostictus,32,poinsettii,torquatus,,,F,80.4,medium,TRUE,FALSE,TRUE
+Sceloporus druckercolini,22,formosus,form-spin-und,,,F,97.5,medium,TRUE,FALSE,TRUE
+Sceloporus dugesii,32,poinsettii,torquatus,,,F,88,medium,TRUE,TRUE,TRUE
+Sceloporus edbelli,,,,x,"?ssp of undulatus, cowlesi, or consobrinus",F,77,medium,FALSE,FALSE,TRUE
+Sceloporus edwardtaylori,22,spinosus,form-spin-und,,,F,107,large,TRUE,TRUE,TRUE
+Sceloporus exsul,22,undulatus,form-spin-und,,,F,65,small,TRUE,FALSE,TRUE
+Sceloporus formosus,22,formosus,form-spin-und,,,F,88,medium,TRUE,FALSE,TRUE
+Sceloporus gadoviae,34,gadovidae,basal,,,F,76,medium,FALSE,TRUE,TRUE
+Sceloporus goldmani,24,scalaris,scalaris,not sampled,,F,60,small,TRUE,FALSE,TRUE
+Sceloporus graciosus,30,graciosus,graciosus,,,F,89,medium,TRUE,TRUE,TRUE
+Sceloporus grammicus,32/31,grammicus,grammicus-p,,,F,81,medium,TRUE,TRUE,TRUE
+Sceloporus grandaevus,34,angustus,basal,,,T,81,medium,FALSE,TRUE,TRUE
+Sceloporus heterolepis,32/31,grammicus,torquatus,,,F,78,medium,TRUE,TRUE,TRUE
+Sceloporus horridus,22,spinosus,form-spin-und,,,F,118,large,TRUE,TRUE,TRUE
+Sceloporus hunsakeri,,magister,mag-34,,,F,87,medium,TRUE,TRUE,TRUE
+Sceloporus insignis,32,torquatus,torquatus,,,F,99,medium,TRUE,TRUE,TRUE
+Sceloporus internasalis,22,formosus,form-spin-und,,,F,100,medium,TRUE,TRUE,TRUE
+Sceloporus jalapae,34,jalapae,basal,,,F,62,small,FALSE,TRUE,TRUE
+Sceloporus jarrovii,32,torquatus,torquatus,,,F,106,large,TRUE,TRUE,TRUE
+Sceloporus lemosespinali,,,,x,?,F,54,small,FALSE,FALSE,TRUE
+Sceloporus licki,34,magister,mag-34,,,F,94,medium,TRUE,TRUE,TRUE
+Sceloporus lineatulus,?,magister,mag-26,,,T,115,large,TRUE,FALSE,TRUE
+Sceloporus lunae,,formosus,form-spin-und,"""lunaei"" - not sampled",,F,95,medium,TRUE,FALSE,TRUE
+Sceloporus lundelli,22,formosus,form-spin-und,not sampled,,F,100,medium,TRUE,FALSE,TRUE
+Sceloporus macdougalli,32,poinsettii,torquatus,,,F,95.4,medium,TRUE,FALSE,TRUE
+Sceloporus maculosus,34a,gadovidae,maculosus,,,F,50,small,TRUE,TRUE,TRUE
+Sceloporus magister,26,magister,mag-26,,,F,142,large,TRUE,TRUE,TRUE
+Sceloporus malachiticus,22,formosus,form-spin-und,,,F,98.2,medium,TRUE,TRUE,TRUE
+Sceloporus megalepidurus,32,megalepidurus,torquatus,,,F,55,small,TRUE,TRUE,TRUE
+Sceloporus melanorhinus,40,clarkii,clarkii,,,F,105,large,TRUE,TRUE,TRUE
+Sceloporus merriami,46,merriami,merriami,,,F,66,small,FALSE,TRUE,TRUE
+Sceloporus minor,32,poinsettii,torquatus,,,F,87,medium,TRUE,TRUE,TRUE
+Sceloporus mucronatus,32,poinsettii,torquatus,,,F,114,large,TRUE,TRUE,TRUE
+Sceloporus nelsoni,34,pyrocephalus,basal,,,F,68.2,small,FALSE,TRUE,TRUE
+Sceloporus occidentalis,22,undulatus,form-spin-und,,,F,99,medium,TRUE,TRUE,TRUE
+Sceloporus ochoterenae,34,jalapae,basal,,,F,62,small,FALSE,TRUE,TRUE
+Sceloporus olivaceus,22,undulatus,form-spin-und,,,F,124,large,TRUE,TRUE,TRUE
+Sceloporus omiltemanus,,pointsettii,torquatus,x,?ssp of mucronatus,F,102,large,TRUE,FALSE,TRUE
+Sceloporus orcutti,34,magister,mag-34,,,F,117,large,TRUE,TRUE,TRUE
+Sceloporus ornatus,32,poinsettii,torquatus,,,F,98,medium,TRUE,TRUE,TRUE
+Sceloporus palaciosi,34b,grammicus,grammicus-F6,,,F,68,small,TRUE,FALSE,TRUE
+Sceloporus parvus,34,variabilis,basal,,,F,51,small,FALSE,TRUE,TRUE
+Sceloporus poinsettii,32,poinsettii,torquatus,,,F,137,large,TRUE,TRUE,TRUE
+Sceloporus pyrocephalus,34c,pyrocephalus,basal,,,F,75,medium,FALSE,TRUE,TRUE
+Sceloporus salvini,,formosus,form-spin-und,not sampled,,F,100,medium,TRUE,FALSE,TRUE
+Sceloporus samcolemani,24,scalaris,scalaris,,,F,61,small,TRUE,FALSE,TRUE
+Sceloporus scalaris,24,scalaris,scalaris,,,F,78,medium,TRUE,TRUE,TRUE
+Sceloporus serrifer,32,poinsettii,torquatus,,,F,113,large,TRUE,TRUE,TRUE
+Sceloporus shannonorum,32/31,grammicus,torquatus,,,F,78,medium,TRUE,FALSE,TRUE
+Sceloporus siniferus,34,angustus,basal,,,F,71.2,small,FALSE,TRUE,TRUE
+Sceloporus slevini,24,scalaris,scalaris,,,F,70,small,TRUE,TRUE,TRUE
+Sceloporus smaragdinus,22,formosus,form-spin-und,,,F,86,medium,TRUE,TRUE,TRUE
+Sceloporus smithi,34,variabilis,basal,,,F,71,small,FALSE,TRUE,TRUE
+Sceloporus spinosus,22,spinosus,form-spin-und,,,F,126,large,TRUE,TRUE,TRUE
+Sceloporus squamosus,34,angustus,basal,,,F,59,small,FALSE,TRUE,TRUE
+Sceloporus stejnegeri,22,formosus,form-spin-und,,,F,94,medium,TRUE,FALSE,TRUE
+Sceloporus subpictus,22,formosus,form-spin-und,,,F,69,small,TRUE,TRUE,TRUE
+Sceloporus sugillatus,,pointsettii,torquatus,not sampled,,F,87,medium,TRUE,FALSE,TRUE
+Sceloporus subniger,24,,scalaris,,,,,,TRUE,FALSE,FALSE
+Sceloporus taeniocnemis,22,formosus,form-spin-und,,,F,82,medium,TRUE,TRUE,TRUE
+Sceloporus tanneri,,formosus,form-spin-und,not sampled,,F,86,medium,TRUE,FALSE,TRUE
+Sceloporus teapensis,34,variabilis,basal,,,F,70,small,FALSE,TRUE,TRUE
+Sceloporus torquatus,32,torquatus,torquatus,,,F,141,large,TRUE,TRUE,TRUE
+Sceloporus tristichus,22,undulatus,form-spin-und,,,F,95.2,medium,TRUE,TRUE,TRUE
+Sceloporus undulatus,22,undulatus,form-spin-und,,,F,91,medium,TRUE,TRUE,TRUE
+Sceloporus uniformis,?,magister,mag-26,,,F,140,large,TRUE,FALSE,TRUE
+Sceloporus unicanthalis,,,,,,,,,FALSE,FALSE,FALSE
+Sceloporus utiformis,34,utiformis,basal,not sampled,,F,84,medium,FALSE,FALSE,TRUE
+Sceloporus variabilis,34,variabilis,basal,,,F,77,medium,FALSE,FALSE,TRUE
+Sceloporus virgatus,22,undulatus,form-spin-und,,,F,71,small,TRUE,TRUE,TRUE
+Sceloporus woodi,22,undulatus,form-spin-und,,,F,65,small,TRUE,TRUE,TRUE
+Sceloporus zosteromus,30,magister,mag-30,,,F,131,large,TRUE,TRUE,TRUE
