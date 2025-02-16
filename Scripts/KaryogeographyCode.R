@@ -30,25 +30,27 @@ saveRDS(SceloporusRanges, "Outputs/Sceloporus_data_frame.RDS")
 library("sf")
 library("dplyr")
 library("raster")
-source("community_analysis.R")
+source("scripts/community_spatial_lm.R")
 SceloporusRanges <- readRDS("Outputs/Sceloporus_data_frame.RDS")
 #remove the karyotypically non-diverse clade & the island endemics
 
 SceloporusRanges_focal <- subset(SceloporusRanges, focal)
 
-community_analysis(SceloporusRanges,"kt_div")
+#
 
 #For SMALL
 small.data <- subset(SceloporusRanges_focal, Size_guild == "small")
-community_analysis(small.data,"small")
+community_spatial_lm(small.data,"small")
+#Error in correlate.resamples(df = spatial_info, listw = nb, kt_resampler = kt.res) : 
+#task 25 failed - "system is computationally singular: reciprocal condition number = 1.13482e-34"
 
 #for MEDIUM
 medium.data <- subset(SceloporusRanges_focal, Size_guild == "medium")
-community_analysis(medium.data,"medium")
+community_spatial_lm(medium.data,"medium")
 
 #for LARGE
 large.data <- subset(SceloporusRanges_focal, Size_guild == "large")
-community_analysis(large.data,"large")
+community_spatial_lm(large.data,"large")
 
 # #### Spatial Correlation ####
 # library("SpatialPack")

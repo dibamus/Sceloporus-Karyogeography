@@ -49,7 +49,7 @@ spgrad <- scale_fill_gradient(low ="#7a7a7a00",high ="#10ccdaff", na.value="#000
                               labels = c("0",fsmax),
                               name = "")
 
-#Sceloporus community diversity maps
+#Sceloporus community richness maps
 #full set
 fullset_plot_sp <- ggplot() +
   geom_sf(data = world, fill = "white")+ theme_bw()+
@@ -62,7 +62,7 @@ fullset_plot_sp <- ggplot() +
   scel_aes +
   scel_theme +
   left_theme +
-  ylab("species diversity") +
+  ylab("species richness") +
   
   ggtitle('all species')
   
@@ -70,7 +70,7 @@ fullset_plot_sp <- ggplot() +
 fullset_plot_kt <- ggplot() +
   geom_sf(data = world, fill = "white")+ theme_bw()+
   geom_spatraster(data = fullset$karyotype) +
-  ylab("karyotype diversity") +
+  ylab("karyotype richness") +
   scale_fill_gradient(low ="#7a7a7a00",high ="#ffdd66ff", na.value="#00000000", 
                       breaks = c(1, minmax(fullset$karyotype)[2]), 
                       limits = c(1, minmax(fullset$karyotype)[2]), 
@@ -267,7 +267,7 @@ large_plot_diff <- ggplot() +
   theme(strip.text.x = element_text(),
         strip.text.y = element_text())
 
-#correlation data
+#correlation data####
 
 cor_aes <- c(scale_x_continuous(limits = c(0,1), expand = c(0, 0)),
              scale_y_continuous(limits = c(0,6), expand = c(0,0),)
@@ -281,7 +281,7 @@ cor_theme <- theme_bw() + theme(panel.grid.major.y = element_blank(),
                    axis.ticks = element_blank(),
                    aspect.ratio= 0.5)
 
-#follow this example
+#follow this example####
 kt_df <- readRDS("Results/kt_div/kt_divresampledktvals.rds") %>% as.data.frame()
 kt.cor <- readRDS("Results/kt_div/kt_div_observed_correlation.rds")
 
@@ -318,7 +318,56 @@ large_dens <- ggplot(large_df, aes(x=slope)) +
              linewidth = 1) + cor_aes + cor_theme
 
 
+#Spatially explicit regression correlations####
+get_spatreg_slopes <- function(filename) {
+  lapply(readRDS(filename), function(x){
+    x$coefficients[2]
+  }) %>% unlist() %>% data.frame()
+  
+}
+
+kt_df_sp <- get_spatreg_slopes("Results/spatial/all_spatial_lm_sims.rds")
+kt.cor_sp <- data.frame(slope = readRDS("Results/spatial/all_spatial_lm_real.rds")$coefficients[2])
+
+kt_dens_sp <- ggplot(kt_df_sp, aes(x=.)) + 
+  geom_density(fill = "#ccc") +
+  geom_vline(xintercept = kt.cor_sp$slope, color = "#10ccda", 
+             linetype = "dotted",
+             linewidth = 1) +
+    ggtitle("all species")
+  
+  #full set p-value = 0.354
+  length(which(kt_df_sp$.< kt.cor_sp$slope))/500  
+
+####
+#no plot for the small group; spatial models would not run
+
+medium_df_sp <- get_spatreg_slopes("Results/spatial/medium_spatial_lm_sims.rds")
+medium.cor_sp <- data.frame(slope = readRDS("Results/spatial/medium_spatial_lm_real.rds")$coefficients[2])
+medium_dens_sp <- ggplot(medium_df_sp, aes(x=.)) + 
+  geom_density(fill = "#ccc") +
+  geom_vline(xintercept = medium.cor_sp$slope, color = "#10ccda", 
+             linetype = "dotted",
+             linewidth = 1) +
+  ggtitle("medium-sized species")
+#medium p-value = 0.674
+length(which(medium_df_sp$.< medium.cor_sp$slope))/500
+
+large_df_sp <- get_spatreg_slopes("Results/spatial/large_spatial_lm_sims.rds")
+large.cor_sp <- data.frame(slope = readRDS("Results/spatial/large_spatial_lm_real.rds")$coefficients[2])
+large_dens_sp <- ggplot(large_df_sp, aes(x=.)) + 
+  geom_density(fill = "#ccc") +
+  geom_vline(xintercept = large.cor_sp$slope, color = "#10ccda", 
+             linetype = "dotted",
+             linewidth = 1)+
+  ggtitle("large-sized species")
+#large p-value = 0.274
+length(which(large_df_sp$.< large.cor_sp$slope))/500
+
 library('patchwork')
+
+spatials <- (kt_dens_sp/medium_dens_sp/large_dens_sp)
+ggsave("Plots/spatial_regression_ps.png", spatials, width = 8, height = 5, units = "in")
 
 big_grid <- (fullset_plot_sp / fullset_plot_kt / fullset_plot_diff /kt_dens) |
   (small_plot_sp / small_plot_kt / small_plot_diff /small_dens) |
