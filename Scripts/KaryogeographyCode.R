@@ -52,24 +52,6 @@ community_spatial_lm(medium.data,"medium")
 large.data <- subset(SceloporusRanges_focal, Size_guild == "large")
 community_spatial_lm(large.data,"large")
 
-# #### Spatial Correlation ####
-# library("SpatialPack")
-# spts <- rasterToPoints(r_sp, spatial = TRUE)
-# SPdf <- data.frame(spts@coords[,1],
-#                    spts@coords[,2],
-#                    sp_values,
-#                    kt_values)
-# 
-# SPdf<- SPdf[which(SPdf$sp_values >1),]
-# 
-# SpatialCorr <- cor.spatial(x = SPdf$sp_values,
-#                            y = SPdf$kt_values, 
-#                            coords = SPdf[,c(3,4)])
-# 
-# SpatialtTest <- modified.ttest(x = SPdf$sp_values,
-#                            y = SPdf$kt_values, 
-#                            coords = SPdf[,c(3,4)])
-
 #### Size Guilds VS Karyotypes ####
 #Are Sceloporus size guilds more karyotypically diverse than expected by chance?
 species.data <- readRDS("Data/Sceloporus_data_frame.rds")
