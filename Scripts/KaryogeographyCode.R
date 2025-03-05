@@ -30,26 +30,31 @@ saveRDS(SceloporusRanges, "Outputs/Sceloporus_data_frame.RDS")
 library("sf")
 library("dplyr")
 library("raster")
-source("scripts/community_spatial_lm.R")
+source("Scripts/community_analysis.R")
+source("Scripts/community_spatial_lm.R")
 SceloporusRanges <- readRDS("Outputs/Sceloporus_data_frame.RDS")
 #remove the karyotypically non-diverse clade & the island endemics
 
 SceloporusRanges_focal <- subset(SceloporusRanges, focal)
 
-#
+#For all karyotypically divrse sceloporus
+community_analysis(SceloporusRanges_focal,"kt_div")
 
 #For SMALL
 small.data <- subset(SceloporusRanges_focal, Size_guild == "small")
+community_analysis(small.data,"small")
 community_spatial_lm(small.data,"small")
 #Error in correlate.resamples(df = spatial_info, listw = nb, kt_resampler = kt.res) : 
 #task 25 failed - "system is computationally singular: reciprocal condition number = 1.13482e-34"
 
 #for MEDIUM
 medium.data <- subset(SceloporusRanges_focal, Size_guild == "medium")
+community_analysis(medium.data,"medium")
 community_spatial_lm(medium.data,"medium")
 
 #for LARGE
 large.data <- subset(SceloporusRanges_focal, Size_guild == "large")
+community_analysis(large.data,"large")
 community_spatial_lm(large.data,"large")
 
 #### Size Guilds VS Karyotypes ####
@@ -74,7 +79,7 @@ resample_sizes <- function(df, guild, n = 10000){
 sm <- resample_sizes(species.data, guild = "small")
 sm.p <- length(which(sm$sims <= sm$observed))/10000 #0.71
 med <- resample_sizes(species.data, guild = "medium")
-med.p <- length(which(med$sims <= med$observed))/10000 #0.17
+med.p <- length(which(med$sims <= med$observed))/10000 #0.502
 lg <- resample_sizes(species.data, guild = "large")
 lg.p <- length(which(lg$sims <= lg$observed))/10000 #0.18
 
@@ -82,6 +87,8 @@ lg.p <- length(which(lg$sims <= lg$observed))/10000 #0.18
 library("picante")
 #### Adjust phylogeny ####
 phy2 <- read.tree(file = "Data/Scel_tree.txt")
+
+#some of the subspecies in the tree are recognized as full sp in geographic analyses; update accordingly
 
 #Sceloporus tips to remove:
 rm <- c("Sceloporus_occidentalis_uwbm6281",
@@ -93,7 +100,6 @@ rm <- c("Sceloporus_occidentalis_uwbm6281",
         "Sceloporus_insignis_anmo1130",
         "Sceloporus_aureolus_rvt54",
         "Sceloporus_orcutti_uwbm7654",
-        "Sceloporus_magister_uniformis_mvz162077",
         "Sceloporus_zosteromus_ADG74",
         "Sceloporus_samcolemani_rwb06263",
         "Sceloporus_scalaris_rwb06247",
@@ -111,6 +117,7 @@ oldnames <- c("Sceloporus_occidentalis_mvz245697",
 "Sceloporus_serrifer_utar39870",
 "Sceloporus_aureolus_jac22409",
 "Sceloporus_orcutti_rwm798",
+"Sceloporus_magister_uniformis_mvz162077",
 "Sceloporus_magister_bimaculosus_dgm924",
 "Sceloporus_magister_uniformis_dgm474",
 "Sceloporus_magister_cephaloflavus_uwbm7395",
@@ -133,6 +140,7 @@ newnames<-c("Sceloporus_occidentalis",
 "Sceloporus_serrifer",
 "Sceloporus_aureolus",
 "Sceloporus_orcutti",
+"Sceloporus_uniformis",
 "Sceloporus_bimaculosus",
 "Sceloporus_uniformis",
 "Sceloporus_cephaloflavus",
@@ -162,6 +170,7 @@ saveRDS(phy2,file = "Outputs/SceloporusTree.rds")
 
 #### Plot Simmap ####
 library("phytools")
+library("ape")
 library("tidyverse")
 species.data <- readRDS("Outputs/Sceloporus_data_frame.rds")
 species.data <- species.data[which(species.data$chromosome_group !=""),]
@@ -179,7 +188,7 @@ names(chromosomegroup)<- species.data$treeName[species.data$treeName %in% phy$ti
 
 ScSimMap <- make.simmap(phy,chromosomegroup,model = "ER", nsim = 100)#
 
-cols <- setNames(c("darkslategray3","gray60","gold","lightskyblue","darkolivegreen3","tomato","orange1","orangered3","orchid","mediumpurple","darkorchid","black","royalblue4","rosybrown"),
+cols <- setNames(c("darkslategray3","gray60","gold","lightskyblue","darkolivegreen3","tomato","orange1","orangered3","orchid","mediumpurple","darkorchid","black","royalblue4","rosybrown","darkgreen"),
                  levels(chromosomegroup))
 plot(ScSimMap[[1]],cols,fsize=0.8,lwd=4,ftype="i")
 add.simmap.legend(colors=cols,x=0.9*par()$usr[1],

@@ -173,20 +173,26 @@ associationTest( ~Karyotype + GARD, sisters)
 
 # Bayesian association test
 
+
+#What is sisters_testing? This needs to be recreated
 library('BayesFactor')
-crosstab <- xtabs( ~kt_dif + geo_overlap, sisters_testing)
+crosstab <- xtabs( ~Karyotype + GARD, sisters)
 contingencyTableBF( crosstab , sampleType = "jointMulti" ) # BF 1.425053
-#A test of association produced a Bayes factor of 1.4:1 in favor of a relationship between karyotype difference and geographic range overlap.
-
-
+#A test of association produced a Bayes factor of 1.4:1 
+# in favor of a relationship between karyotype difference and geographic range overlap.
 
 # difference in node depths between overlapping & non-overlapping species
 library('ggplot2')
-ggplot(sisters_testing)+
-  geom_histogram(aes(x= depths, fill = geo_overlap), position="dodge", binwidth=2)+
-  geom_vline(xintercept = sisters_testing$depths[which(sisters_testing$kt_dif == "TRUE")])+
+ggplot(sisters)+
+  geom_histogram(aes(x= depths, fill = GARD), position="dodge", binwidth=2)+
+  geom_vline(xintercept = sisters$depths[which(sisters$Karyotype == "FALSE")])+
   ggtitle("Distribtion of node depths between sister species")
 
+#Are node ages of overlapping sisters greater than those of non-overlapping sisters
+
+t.test(sisters[as.logical(sisters$GARD),]$depths %>% as.numeric(), #Overlap
+       sisters[!as.logical(sisters$GARD),]$depths %>% as.numeric(), #non-overlap
+       "greater")
 
 #####analyze species/karyotype overlap####
 intersects_df <- readRDS("Outputs/intersects_df.RDS")
@@ -199,19 +205,25 @@ intersects_df$samesize <- as.factor(intersects_df$samesize)
 #Chi sq correlation between Karyotype and Geographic overlap
 
 library('lsr')
+# Size guild ~ GARD all focal species
 chi.GARD.focal.size <- associationTest( ~samesize + GARD, intersects_df[which(intersects_df$focal),])
 
-chi.GARD.full <- associationTest( ~Karyotype + GARD, intersects_df)
+#karyotype ~ GARD all focal species
 chi.GARD.focal <- associationTest( ~Karyotype + GARD, intersects_df[which(intersects_df$focal),])
-chi.GARD.riv <- associationTest( ~Karyotype + GARD, intersects_df[which(intersects_df$Riv_focal),])
+
+
+
 chi.GARD.focal.med <- associationTest( ~Karyotype + GARD, 
                                        intersects_df[which(intersects_df$focal & intersects_df$samepairs == "medium"),])
 chi.GARD.focal.large <- associationTest( ~Karyotype + GARD, 
                                        intersects_df[which(intersects_df$focal & intersects_df$samepairs == "large"),])
 
-chi.Riv.full <-  associationTest( ~Karyotype + Rivera, intersects_df[which(!is.na(intersects_df$Rivera)),])
+# For species in both GARD and Rivera et al
+#Karyotype ~GARD overlap for focal sp in Rivera et al
+chi.GARD.riv <- associationTest( ~Karyotype + GARD, intersects_df[which(intersects_df$Riv_focal),])
+#Karyotype ~ Rivera overlap for focal sp in Rivera et al
 chi.Riv.focal <- associationTest( ~Karyotype + Rivera, intersects_df[which(intersects_df$Riv_focal),])
-
+#Karyotype ~ Rivera overlap & Gard Overlap for focal sp in Rivera et al
 def.focal <- associationTest( ~Karyotype + definite_overlaps, intersects_df[which(intersects_df$Riv_focal),])
 
 
